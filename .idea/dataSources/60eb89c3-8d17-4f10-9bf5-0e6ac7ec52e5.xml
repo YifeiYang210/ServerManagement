@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="mange [2]">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="FILES"/>
+    <table id="7" parent="2" name="LinkButton"/>
+    <table id="8" parent="2" name="RemoteHost"/>
+    <table id="9" parent="2" name="SYSTEMINFO"/>
+    <table id="10" parent="2" name="TaskList"/>
+    <table id="11" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <column id="12" parent="6" name="ids">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="13" parent="6" name="filePath">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="14" parent="6" name="getVie">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="15" parent="7" name="BTID">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="16" parent="7" name="BUTTONNAME">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="17" parent="7" name="TYPE">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="18" parent="7" name="TIM">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="19" parent="7" name="NOTE">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="20" parent="7" name="SHELL">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="21" parent="7" name="CATEGORY">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="22" parent="8" name="IP">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="23" parent="8" name="PORT">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="24" parent="8" name="CTYPE">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="25" parent="8" name="USERNAME">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="26" parent="8" name="PWD">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="27" parent="8" name="PKPATH">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="28" parent="8" name="GROUPS">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="29" parent="8" name="NOTE">
+      <Position>8</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="30" parent="8" name="CARETETIME">
+      <Position>9</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="31" parent="8" name="ROOTPWD">
+      <Position>10</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="32" parent="9" name="INFO">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="33" parent="9" name="TIM">
+      <Position>2</Position>
+      <DataType>NUMBER|0s</DataType>
+    </column>
+    <column id="34" parent="10" name="INFO">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="35" parent="10" name="TASKID">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="36" parent="11" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="37" parent="11" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="38" parent="11" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="39" parent="11" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="40" parent="11" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+  </database-model>
+</dataSource>
