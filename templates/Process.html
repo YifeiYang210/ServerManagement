@@ -12,17 +12,17 @@
     <script src="/static/js/jquery.min.js"></script>
 </head>
 
-<body>
-    <div style="margin-left: 10%">
-        <div id='echartsBox'>
+<body style="background-color: #2c275f">
+    <div style="margin-top: 50px;margin-left:25px;width:100%;height: 360px;float: left;border-radius:25px;">
+        <div id='echartsBox' style="background-color:#3e367f;border-radius: 25px;">
         </div>
-        <div style="clear: both;font-size:8px;">
+        <div style="margin-left:25px;margin-top:290px;width:1550px;height:30px;clear: both;background-color:#3e367f;border-radius: 1em 1em 1em;">
             <span id="sysinfo"></span>
         </div>
     </div>
     <div class="admin-main" style="width:40%;float: left">
         <fieldset class="layui-elem-field">
-            <legend>共有<a id='proListSize'>0</a>个进程&#8195;<a class='layui-btn layui-btn-normal layui-btn-sm' href='javascript:void(0);' onclick='refPro()'>刷新</a>
+            <legend><a style="color: white">共有</a><a id='proListSize' style="color: white">0</a><a style="color: white">个进程&#8195;</a><a class='layui-btn layui-btn-normal layui-btn-sm' href='javascript:void(0);' onclick='refPro()'>刷新</a>
                 <a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
             </legend>
             <div class="layui-field-box">
@@ -39,7 +39,7 @@
     <div class="admin-main" style="width:46%;float: left">
         <fieldset class="layui-elem-field">
 
-            <legend>全部网络连接&#8195;<a class='layui-btn layui-btn-normal layui-btn-sm' href='javascript:void(0);' onclick='refNet()'>刷新</a><a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
+            <legend><a style="color: white">全部网络连接&#8195;</a><a class='layui-btn layui-btn-normal layui-btn-sm' href='javascript:void(0);' onclick='refNet()'>刷新</a><a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
             </legend>
             <div class="layui-field-box">
                 <table class="site-table table-hover">
@@ -255,7 +255,7 @@
         var timeAxis = [];
         var sendArr = [];
         var rcvdArr = [];
-     function GetPieJson() {
+        function GetPieJson() {
             $.ajax({
                 type: "POST",
                 dataType: "html",
@@ -269,16 +269,17 @@
                     $.each(result.result, function (i, item) {
                         CreatPie(item)
                     });
-                    var ht = '&#12288;'
+                    var ht = '&#12288;';
                     $.each(result.sysinfo, function (i, item) {
-                        ht += '<a>' + item + '</a>&#12288;&#12288;'
+                        ht += '<a style="color:white;">' + item + '</a>&#12288;&#12288;'
                     });
                     document.getElementById('sysinfo').innerHTML = ht;
+
                     ht = '';
 			        var parent = document.getElementById('echartsBox');　　　　
 			        var div = document.createElement("div");　　　　
 			        div.setAttribute("id", 'echartsLine');
-			        div.setAttribute("style", "width: 500px;height:200px;float: left;");　　　　
+			        div.setAttribute("style", "padding:15px 10px;margin-left:20px; width: 500px;height:240px;float: left;background-color:#3e367f;border-radius: 25px;");　　　　
 			        parent.appendChild(div);  
 			        GetLineJson() //页面加载完成后,先请求一次实时流量,以免初次加载完折线图后数据空白
 			        GetLineJson()
@@ -290,8 +291,10 @@
             var option = {
                 title: {
                     text: dict.ttl, //标题
-                    subtext: dict.subtext, //副标题
-                    x: 'center' //标题居中
+                    x: 'center', //标题居中
+                    textStyle: { //图例文字的样式
+                        color: '#fff'
+                    }
                 },
                 tooltip: {
                     trigger: 'item',
@@ -299,20 +302,31 @@
                 },
                 //颜色-项目对应
                 calculable: true,
+                color : [ '#01d882', '#feb501' ],
+                graphic: [{ //环形图中间添加文字
+                    type: 'text', //通过不同top值可以设置上下显示
+                    left: 'center',
+                    top: '60%',
+                    style: {
+                        text: dict.subtext,
+                        textAlign: 'center',
+                        fill: 'white', //文字的颜色
+                        fontSize: 14,
+                        fontFamily: "Microsoft YaHei"
+                    }
+                }],
                 series: [{
                         name: dict.ttl,
                         type: 'pie',
-                        radius: '55%', //饼图的半径大小
-                        center: ['50%', '70%'], //饼图的位置
+                        radius: ['50%', '70%'],
+                        center: ['50%', '60%'], //饼图的位置
                         data: dict.json
-                    },
-
-                ]
+                }],
             };　　　　　　
             var parent = document.getElementById('echartsBox');　　　　
             var div = document.createElement("div");　　　　
             div.setAttribute("id", dict.pieBox);
-            div.setAttribute("style", "width: 230px;height:160px;float: left;");　　　　
+            div.setAttribute("style", "padding:15px 0px;margin-left:20px;width: 325px;height:240px;float: left;background-color:#3e367f;border-radius: 25px;");　　　　
             parent.appendChild(div);
             echartsPie = echarts.init(document.getElementById(dict.pieBox));
             echartsPie.setOption(option);
@@ -321,44 +335,75 @@
         function CreatLine() {
             option = {
                 title: {
-                    text: '实时流量'
+                    text: '实时流量',
+                    textStyle: { //图例文字的样式
+                        color: '#fff'
+                    }
                 },
                 tooltip: {
                     trigger: 'axis',
                 },
                 legend: {
-                    data: ['发送', '下载']
+                    data: ['发送', '下载'],
+                    textStyle:{//图例文字的样式
+                        color:'#ccc',
+                        fontSize:16
+                    }
                 },
 
                 xAxis: [{
                     type: 'category',
                     boundaryGap: false,
-                    data: timeAxis
+                    data: timeAxis,
+                    axisLabel: {
+                        color: 'white'
+                    }
                 }],
                 yAxis: [{
-                    type: 'value'
+                    type: 'value',
+                    axisLabel: {
+                        color: 'white'
+                    }
                 }],
                 series: [{
                         name: '发送',
-                        type: 'line',
+                        type: 'bar',
                         stack: '总量',
                         areaStyle: {},
-                        data: sendArr
+                        data: sendArr,
+                        barWidth : 20,//柱图宽度
+                        itemStyle:{
+                             normal:{
+                               color:'#f5b031',
+                             }
+                        },
                     }, {
                         name: '下载',
-                        type: 'line',
+                        type: 'bar',
+                        barWidth : 20,//柱图宽度
                         stack: '总量',
                         areaStyle: {},
-                        data: rcvdArr
+                        data: rcvdArr,
+                        itemStyle:{
+                             normal:{
+                               color:'#C8FE2E',
+                             }
+                        },
                     },
 
-                ]
+                ],
+                dataZoom: [{
+                        start: 5,
+                        end: 100,
+                        type: 'inside'
+                    }, {
+                        handleIcon: 'M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4v1.3h1.3v-1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7V23h6.6V24.4z M13.3,19.6H6.7v-1.4h6.6V19.6z',
+                }],
             };　　
             if (typeof(echartsLineFunc) == "undefined"){echartsLineFunc = echarts.init(document.getElementById('echartsLine'));};
             
             echartsLineFunc.setOption(option);
         }
-
 
         function GetLineJson() {
             $.ajax({
