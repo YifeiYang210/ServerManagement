@@ -3,17 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7d9f0bad-a792-44fb-bc14-f880dc33d218" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/sqlitedb/mange.db" beforeDir="false" afterPath="$PROJECT_DIR$/sqlitedb/mange.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/plugins/layui/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/plugins/layui/css/layui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578218321.218539.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578218321.4564192.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578218321.6535451.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578218321.8312933.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578300541.5543973.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578300541.6206594.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/1578300541.796094.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ControlPanel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ControlPanel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/1578384310.0303793.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/1578384310.2269197.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/1578384310.5420625.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/Process.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Process.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/ControlPanel.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
+            <state relative-caret-position="552">
               <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -72,21 +66,6 @@
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="2154" lean-forward="true" selection-start-line="1" selection-start-column="2154" selection-end-line="1" selection-end-column="2154" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,26 +95,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/Process.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="60" />
+            <state relative-caret-position="306">
+              <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#a#0;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#2;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#legend#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#script#4;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#3174#3833#0#HTML" />
                 <element signature="e#3868#4385#0#HTML" />
                 <element signature="e#4419#4653#0#HTML" />
-                <element signature="e#4998#5917#0#HTML" />
                 <element signature="e#5957#6996#0#HTML" />
                 <element signature="e#7095#9764#0#HTML" />
                 <element signature="e#9799#9846#0#HTML" />
@@ -170,6 +152,10 @@
       <find>layui</find>
       <find>render</find>
       <find>#</find>
+      <find>color</find>
+      <find>!important</find>
+      <find>layui.use</find>
+      <find>table-hover</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -194,8 +180,10 @@
         <option value="$PROJECT_DIR$/index.py" />
         <option value="$PROJECT_DIR$/templates/ControlPanel.html" />
         <option value="$PROJECT_DIR$/static/plugins/layui/css/layui.css" />
-        <option value="$PROJECT_DIR$/templates/Process.html" />
         <option value="$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js" />
+        <option value="$PROJECT_DIR$/static/css/layui.css" />
+        <option value="$PROJECT_DIR$/static/css/global.css" />
+        <option value="$PROJECT_DIR$/templates/Process.html" />
       </list>
     </option>
   </component>
@@ -232,7 +220,13 @@
             <path>
               <item name="ServerManagement" type="b2602c69:ProjectViewProjectNode" />
               <item name="ServerManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ServerManagement" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ServerManagement" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -315,12 +309,12 @@
       <updated>1577966871706</updated>
       <workItem from="1577966878851" duration="2236000" />
       <workItem from="1578203956841" duration="10431000" />
-      <workItem from="1578372692697" duration="11158000" />
+      <workItem from="1578372692697" duration="14641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23825000" />
+    <option name="totallyTimeSpent" value="27308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -333,6 +327,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18796591" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -606,21 +601,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/plugins/layui/css/layui.css">
+    <entry file="file://$PROJECT_DIR$/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
-          <caret line="1" column="1124" selection-start-line="1" selection-start-column="1124" selection-end-line="1" selection-end-column="1124" />
+          <caret line="1" column="4075" lean-forward="true" selection-start-line="1" selection-start-column="4075" selection-end-line="1" selection-end-column="4075" />
           <folding>
-            <element signature="e#61540#61679#2" expanded="true" />
-            <element signature="e#63133#63272#2" expanded="true" />
-            <element signature="e#63820#63959#2" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/route/process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/layui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="36740" selection-start-line="1" selection-start-column="36740" selection-end-line="1" selection-end-column="36740" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ControlPanel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
+        <state relative-caret-position="552">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -638,64 +661,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/route/process.py">
+    <entry file="file://$PROJECT_DIR$/static/plugins/layui/css/layui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+        <state relative-caret-position="24">
+          <caret line="1" column="18057" selection-start-line="1" selection-start-column="18057" selection-end-line="1" selection-end-column="18057" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#61540#61679#2" expanded="true" />
+            <element signature="e#63133#63272#2" expanded="true" />
+            <element signature="e#63820#63959#2" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.py">
+    <entry file="file://$PROJECT_DIR$/static/css/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="175">
+          <caret line="164" column="1" selection-start-line="164" selection-start-column="1" selection-end-line="164" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/Process.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="60" />
+        <state relative-caret-position="306">
+          <caret line="68" column="28" lean-forward="true" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#a#0;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#2;n#legend#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#legend#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#script#4;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#tbody#0;n#table#0;n#div#0;n#fieldset#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#3174#3833#0#HTML" />
             <element signature="e#3868#4385#0#HTML" />
             <element signature="e#4419#4653#0#HTML" />
-            <element signature="e#4998#5917#0#HTML" />
             <element signature="e#5957#6996#0#HTML" />
             <element signature="e#7095#9764#0#HTML" />
             <element signature="e#9799#9846#0#HTML" />
             <element signature="e#9881#9928#0#HTML" />
             <element signature="e#9970#10651#0#HTML" />
             <element signature="e#14482#15275#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/plugins/layui/lay/modules/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="2154" lean-forward="true" selection-start-line="1" selection-start-column="2154" selection-end-line="1" selection-end-column="2154" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -163,10 +163,10 @@ body .layui-layer-dir .layui-layer-content{padding: 10px; max-height: 280px; ove
 .site-text code{margin:0 5px; padding: 3px 10px; border: 1px solid #e2e2e2; background-color: #fbfbfb; color: #666; border-radius: 2px;}
 
 .site-table{width: 100%; margin: 10px 0;}
-.site-table thead{background-color:#f2f2f2; }
+.site-table thead{background-color:#3e367f; }
 .site-table th, 
 .site-table td{padding: 6px 15px; min-height: 20px; line-height: 20px; border:1px solid #ddd; font-size: 14px; font-weight: 400;}
-.site-table tr:nth-child(even){background: #fbfbfb;}
+.site-table tr:nth-child(even){background: #3e367f;}
 
 .site-block{padding: 20px; border: 1px solid #eee;}
 .site-block .layui-form{margin-right: 200px;}
