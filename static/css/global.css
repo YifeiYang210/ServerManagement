@@ -311,10 +311,10 @@ body .site-demo-nav .layui-nav-item{line-height: 40px}
 	width: 60px; height: 60px; border-radius: 100%;
 }
 .admin-header-lock-name{
-	color: #009688;margin: 8px 0 15px 0;
+	color: #4A4AFF;margin: 8px 0 15px 0;
 }
 .admin-header-lock-input{
-	width: 150px; color: #FFFFFF; height: 30px; border: 0;background-color: #009688; padding: 0 7px; border-radius: 2px;
+	width: 150px; color: #FFFFFF; height: 30px; border: 0;background-color: #4A4AFF; padding: 0 7px; border-radius: 2px;
 }
 /*table*/
 .site-table tbody tr td {text-align: center;}

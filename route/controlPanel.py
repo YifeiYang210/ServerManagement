@@ -16,6 +16,9 @@ from .login import cklogin
 # 获取网关信息
 NAThost = '未获取'
 netIP = '未获取'
+NADiskTotal = ''
+NADiskUsed = ''
+NADiskFree = ''
 PCname = socket.gethostname()
 try:
     ipContent = requests.get('http://pv.sohu.com/cityjson?ie=utf-8').text
@@ -37,6 +40,18 @@ finally:
 ResTask = writeResTask()
 visitDay = visitDay
 
+diskTtotal = psutil.disk_partitions()
+for i in diskTtotal:
+    try:
+        o = psutil.disk_usage(i.device)
+        ioo=psutil.disk_io_counters()
+        print(ioo)
+    except Exception as e:
+        pass
+    NADiskTotal = int(o.total / (1024.0 * 1024.0 * 1024.0))
+    NADiskUsed = int(o.used / (1024.0 * 1024.0 * 1024.0))
+    NADiskFree = int(o.free / (1024.0 * 1024.0 * 1024.0))
+
 
 @app.route('/ControlPanel', methods=['POST', 'GET'])
 @cklogin()
@@ -52,7 +67,10 @@ def ControlPanel():
                                NATHOST=NAThost,  # 内网IP
                                PCname=PCname,  # 电脑名字
                                bootTime=datetime.datetime.fromtimestamp(psutil.boot_time()).strftime(
-                                   "%Y-%m-%d,%H:%M:%S")  # 开机时间
+                                   "%Y-%m-%d,%H:%M:%S"),  # 开机时间
+                               NADISKTOTAL=NADiskTotal,
+                               NADISKUSED=NADiskUsed,
+                               NADISKFREE=NADiskFree
                                )
     sqlResult = sql.selectInfo(day=visitDay)
     if not sqlResult[0]:

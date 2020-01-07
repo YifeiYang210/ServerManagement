@@ -65,11 +65,11 @@ body{
 }
 .page span.current{
     display: inline-block;
-    background: #009688;
+    background: #2c275f;
     color: #fff;
     padding: 5px;
     min-width: 15px;
-    border: 1px solid #009688;
+    border: 1px solid #2c275f;
 }
 .page .pagination li{
     display: inline-block;
@@ -77,9 +77,9 @@ body{
     text-align: center;
 }
 .page .pagination li.active span{
-    background: #009688;
+    background: #2c275f;
     color: #fff;
-    border: 1px solid #009688;
+    border: 1px solid #2c275f;
 
 }
 
@@ -88,7 +88,7 @@ body{
 .container{
     width: 100%;
     height: 45px;
-    background-color: #222;
+    background-color: #2c275f;
 }
 .container a,.layui-nav .layui-nav-item a{
     color: #fff;
@@ -199,6 +199,7 @@ body{
 }
 .left-nav #nav li a cite{
     font-size: 14px;
+    color: white;
 }
 
 .left-nav #nav li .sub-menu{
@@ -211,7 +212,7 @@ body{
     /*background: #fff ;*/
 }
 .left-nav #nav li .opened .current{
-    
+
 }
 .left-nav #nav li .sub-menu li:hover{
     /*color: blue;*/
@@ -281,7 +282,7 @@ body{
 .page-content .layui-tab-title{
     /*padding-top: 5px;*/
     height: 35px;
-    background: #EFEEF0 ;
+    background: #2c275f ;
     position: relative;
     z-index: 100;
 }
@@ -301,7 +302,7 @@ body{
     border-radius: 50%;
 }
 .page-content .layui-tab-title .layui-this{
-    background: #fff ;
+    background: #2c275f ;
 }
 .page-content .layui-tab-bar{
     height:34px;
@@ -318,7 +319,7 @@ body{
 .page-content .layui-tab-content .layui-tab-item{
     width: 100%;
     height: 100%;
-    
+
 }
 .page-content .layui-tab-content .layui-tab-item iframe{
     width: 100%;
@@ -346,7 +347,7 @@ body{
     font-style:normal;
     font-size:30px;
     font-weight:300;
-    color:#009688
+    color:#2c275f
 }
 .x-admin-backlog-body:hover {
     background-color:#CFCFCF;
@@ -483,6 +484,7 @@ table th, table td {
 }
 .x-admin-sm .layui-tab-title li{
     font-size: 12px;
+    color: white;
 }
 .x-admin-sm .layui-icon{
     font-size: 14px;

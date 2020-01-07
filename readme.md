@@ -1,4 +1,26 @@
-# ServerManagement  [![Python3.4+](https://img.shields.io/badge/python-3.4%2B-green.svg)](https://github.com/cksgf/ServerManagement)
+	
+	<div style="width: 45%;height: 700px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+            <div style="width:45%;height: 300px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+				<div id="echartlDisk" style="width:20%;height: 300px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+					
+				</div>	
+				<div id="echartsLine3" style="width:20%;height: 300px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+					
+				</div>
+            </div>
+			<div style="width: 45%;height: 300px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+				<div id="echartsLine1">
+				</div>
+            </div>
+    </div>
+	
+	<div style="width: 45%;height: 300px;float: left;margin-top: 20px;margin-left: 20px;background-color: #3e367f;">
+		<div id="echartsLine2"></div>
+	</div>
+	
+	
+	
+	# ServerManagement  [![Python3.4+](https://img.shields.io/badge/python-3.4%2B-green.svg)](https://github.com/cksgf/ServerManagement)
 服务器管理工具，目前有文件管理器、进程监控、计划任务、webSSH、多主机管理、本地桌面、内网穿透等，后续会加入更多运维相关，本项目后端python+flask<br>
 [![更新日志](https://img.shields.io/badge/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97-%E7%82%B9%E6%AD%A4%E6%9F%A5%E7%9C%8B-brightgreen.svg)](readme/更新日志.md)
 ## 功能介绍
@@ -61,5 +83,3 @@
 ## 其中的文件管理器部分前端给后端传值,大部分采用base64编码 <br>
 ## 使用前切记修改config/config<br>
 如果你觉得我做的还可以,请给我个star,它将支持我继续优化及添加更多功能
-
- 
