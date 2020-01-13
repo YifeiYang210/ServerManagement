@@ -25,46 +25,46 @@
     </style>
 </head>
 <body>
-<div style="margin: 15px;" id="loginbox">
-        <form class="layui-form" action="">
-            <fieldset class="layui-elem-field">
-                <legend>webssh登陆</legend>
-                <div class="layui-form-item layui-form-text">
+<div style="text-align:center" id="loginbox">
+            <div class="layui-card" style=" width: 400px;height: 330px;margin: 10% auto;border-radius:10px;padding:25px;color:whitesmoke;font-size: 15px; background-color: rgba(255,255,255,0.4);">
+            <div class="layui-card-header" style=" font-size: 30px;color:whitesmoke;">webssh登陆</div>
+                <div class="layui-card-body" >
+                  <form class="layui-form" action="" >
+                   <div class="layui-form-item layui-form-text" >
                     <label class="layui-form-label">远程地址</label>
                     <div class="layui-input-inline">
                         <input type="text" name="host" lay-verify="text" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-
-                <div class="layui-form-item layui-form-text">
+                   <div class="layui-form-item layui-form-text" >
                     <label class="layui-form-label">端口</label>
                     <div class="layui-input-inline">
                         <input type="text" name="port" lay-verify="text" autocomplete="off" class="layui-input" value="22">
                     </div>
                 </div>
-                <div class="layui-form-item layui-form-text">
+                   <div class="layui-form-item layui-form-text" >
                     <label class="layui-form-label">登陆用户名</label>
                     <div class="layui-input-inline">
                         <input type="text" name="username" lay-verify="text" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">登录密码</label>
+                   <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">登陆密码</label>
                     <div class="layui-input-inline">
                         <input type="password" name="pwd" lay-verify="text" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-            </fieldset>
-
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <a onclick="loginForSSH()" class="layui-btn" >登陆</a>
+                   <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 25px;" >
+                    <button class=" layui-btn layui-btn-normal" lay-submit lay-filter="sshlogin">登陆</button>
                     <button type="reset" id="sshlogin" class="layui-btn layui-btn-primary">清空</button>
                 </div>
             </div>
-        </form>
+                  </form>
+                </div>
+             </div>
 
-    </div>
+
 <div id="terms"></div>
 </body>
         <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
@@ -72,25 +72,32 @@
         <script src="/static/js/xterm.min.js"></script>
     <script type="text/javascript" src="/static/js/ffevent.js"></script>
 <script>
-                var ids='';
-                loginForSSH = function () {
+    var ids='';
+            layui.use(['form', 'layedit', 'laydate'], function () {
+                var form = layui.form,
+                    layer = layui.layer,
+                    layedit = layui.layedit,
+                    laydate = layui.laydate;
+                var $ = layui.jquery;
+                form.on('submit(sshlogin)', function (data) {
+                    <!--field存放所有字段名和值-->
+                    data = data.field;
                     $.ajax({
                         url: '/ssh',
                         dataType: "html",
                         type: "POST",
-                        data: {
-				                'host' : $("input[name='host']").val(),
-				                'port' :$("input[name='port']").val(),
-				                'username' :$("input[name='username']").val(),
-				                'pwd': $("input[name='pwd']").val()
-                        },
+                        data: data,
                         success: function (data) {
                             resultCode = jQuery.parseJSON(data).resultCode;
+                            <!--成功-->
                             if (resultCode == '0') {
                             	document.getElementById('loginbox').hidden=true;
                                 ids=jQuery.parseJSON(data).ids;
+                                <!--创建终端-->
                                 var term = new Terminal();
+                                <!--挂载-->
                                 term.open(document.getElementById('terms'));
+                                <!--传值给后台-->
                                 term.on('data', function (data) {
                                     $.ajax({
                                         type:'POST',
@@ -125,14 +132,15 @@
                                 getSSHResult = setInterval(getResult,100);
 
                             } else {
-                                alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]})
+                                layer.alert(jQuery.parseJSON(data).result,{title:false,area: ["250px", "150px"],time: 10000,btn:["关闭"]})
                             };
                         }
                     })
 
                     return false;
-                };
-
+                });
+            });
 </script>
 
 </html>
+

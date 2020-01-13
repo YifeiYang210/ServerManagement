@@ -7,35 +7,88 @@
     <link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
     <link rel="stylesheet" href="/static/css/global.css" media="all">
     <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/table.css" />
+    <link rel="stylesheet" href="/static/css/table.css"  />
     <script src="/static/js/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="admin-main">
-        <blockquote class="layui-elem-quote">
-	            <a href='javascript:void(0);' onclick='CreateRemote()' class="layui-btn layui-btn-sm">
-	                <i class="layui-icon"></i> 新建主机
-	            </a>
-	            <a id = 'RemoteShellA' href='javascript:void(0);' onclick='RemoteShell()' style="display: none" class="layui-btn layui-btn-sm">
-	                <i class="layui-icon"></i> 批量执行
-	            </a>
-	            <a id = 'DeleteRRemote' href='javascript:void(0);' onclick='DeleteR()' style="display: none" class="layui-btn layui-btn-sm">
-	                <i class="layui-icon"></i> 批量删除
-	            </a>
-	        <ul>
+        <ul class="layui-nav "  lay-filter="" style=" background-color: #4E449F;">
+                <li class="layui-nav-item"><a href='javascript:void(0);' onclick='Instruction()'>
+	                <i class="layui-icon layui-icon-about" style="font-size: 20px;"></i> 使用说明
+	            </a></li>
+	            <li class="layui-nav-item"><a href='javascript:void(0);' onclick='CreateRemote()' >
+	                <i class="layui-icon layui-icon-add-circle" style="font-size: 20px;"></i> 新建主机
+	            </a></li>
+	            <li class="layui-nav-item"><a id = 'RemoteShellA' href='javascript:void(0);' onclick='RemoteShell()' style="display: none" >
+	                <i class="layui-icon layui-icon-util" style="font-size: 20px;"></i> 批量执行
+	            </a></li>
+	            <li class="layui-nav-item"><a id = 'DeleteRRemote' href='javascript:void(0);' onclick='DeleteR()' style="display: none" >
+	                <i class="layui-icon layui-icon-delete" style="font-size: 20px;"></i> 批量删除
+	            </a></li>
+
+        </ul>
+        <!--说明文档-->
+        <div id="instruction" style="display: none ;" ><ul>
 				<li>1.可以改变shell执行的目录</li>
 				<li> 2.多条shell命令使用英文分号;来分割</li>
 				<li> 3.若使用root身份执行shell,请在shell最后追加#root</li>
 				<li>如:cd /home;pwd>/home/pwd.txt #root</li>
-			</ul>	
-
-        </blockquote>
+			</ul></div>
+        <!--新建主机-->
+        <div class="layui-form" id="form-new" style="display: none;" >
+          <form>
+              <br>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">主机IP:</label>
+           <div class="layui-input-inline">
+                 <input type="text" id="IP" name="IP" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">远程端口:</label>
+           <div class="layui-input-inline">
+                 <input type="text" id="PORT" name="PORT" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">主机账号:</label>
+           <div class="layui-input-inline">
+                 <input type="text" id="USERNAME" name="USERNAME" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">主机密码:</label>
+           <div class="layui-input-inline">
+                 <input type="password" id="PWD" name="PWD" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">root密码:</label>
+           <div class="layui-input-inline">
+                 <input type="password" id="ROOTPWD" name="ROOTPWD" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">分组:</label>
+           <div class="layui-input-inline">
+                 <input type="text" id="GROUPS" name="GROUPS" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+              <div class="layui-form-item layui-form-text">
+               <label class="layui-form-label">备注:</label>
+           <div class="layui-input-inline">
+                 <input type="text" id="NOTE" name="NOTE" autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          </form>
+        </div>
+        <br>
         <fieldset class="layui-elem-field">
-            <legend>选择主机后进行操作</legend>
+            <legend style="color:white">选择主机后进行操作</legend>
             <div class="layui-field-box">
                 <table class="site-table table-hover">
-                    <thead>
+                    <thead >
                         <tr>
                             <th>
                                 IP
@@ -76,51 +129,6 @@
         <script type="text/javascript" src="/static/js/ffevent.js"></script>
     <script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
     <script type="text/javascript">
-var strVar = "";
-    strVar += "        <form>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">主机IP:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"IP\" name=\"IP\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">远程端口:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"PORT\" name=\"PORT\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">主机账号:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"USERNAME\" name=\"USERNAME\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">主机密码:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"password\" id=\"PWD\" name=\"PWD\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">root密码:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"ROOTPWD\" name=\"ROOTPWD\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">分组:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"GROUPS\" name=\"GROUPS\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "            <div class=\"layui-form-item layui-form-text\">\n";
-    strVar += "                <label class=\"layui-form-label\">备注:<\/label>\n";
-    strVar += "                <div class=\"layui-input-inline\">\n";
-    strVar += "                    <input type=\"text\" id=\"NOTE\" name=\"NOTE\" autocomplete=\"off\" class=\"layui-input\">\n";
-    strVar += "                <\/div>\n";
-    strVar += "            <\/div>\n";
-    strVar += "        <\/form>\n";
 
         var selectedList = new Array();
 
@@ -144,8 +152,9 @@ var strVar = "";
         layui.config({
             base: '/static/plugins/layui/modules/'
         });
-        layui.use(['icheck', 'laypage', 'layer'], function () {
+        layui.use(['icheck', 'laypage', 'layer','element'], function () {
             var files = '';
+            var element = layui.element;
             var $ = layui.jquery,
                 laypage = layui.laypage,
                 layer = parent.layer === undefined ? layui.layer : parent.layer;
@@ -159,22 +168,25 @@ var strVar = "";
                     url: '/SelectBatchExec',
                     success: function (data) {
                         if (jQuery.parseJSON(data).resultCode == '1') {
-                            layer.alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]});
+                            layer.alert(jQuery.parseJSON(data).result,{title:false,area: ["250px", "150px"],time: 10000,btn:["关闭"]});
                             return 0
                         };
                         result = jQuery.parseJSON(data).result;
                         var t = result.slice(0, 15);
                         ht = getRHtml(t);
                         document.getElementById("dataList").innerHTML = ht;
+                        <!--分页-->
                         laypage({
                             cont: 'page',
                             pages: Math.ceil(files.length / 15),
                             groups: 5,
                             jump: function (obj, first) {
                                 var curr = obj.curr;
+                                <!--切换分页-->
                                 if (!first) {
                                     var te = files.slice(curr * 15 - 15, curr * 15);
                                     hem = getRHtml(te);
+                                    <!--新建主机加入table-->
                                     document.getElementById("dataList").innerHTML = hem;
                                 }
                             }
@@ -183,6 +195,13 @@ var strVar = "";
                 });
             };
             GetRResult();
+            Instruction=function(){
+                InstructionOpen=layer.open({
+                    type:0,
+                    title:'使用说明',
+                    content: $("#instruction").html(),
+                })
+            };
             CreateRemote = function () {
               CreateRemoteOpen = top.layer.open({
                   type: 1,   
@@ -191,7 +210,7 @@ var strVar = "";
                   shade: 0.8,    
                   btn: ['保存', '关闭'],
                   area: ['450px', '500px'],  
-                  content: strVar, 
+                  content: $("#form-new").html(),
                   yes: function(index){
                         $.ajax({
                             type: "POST",
@@ -211,7 +230,7 @@ var strVar = "";
                                 if (resultCode == '0') {
                                     layer.msg('创建成功')
                                 } else {
-                                    layer.alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]});
+                                    layer.alert(jQuery.parseJSON(data).result,{title:false,area: ["250px", "150px"],time: 10000,btn:["关闭"]});
                                 };
                                 GetRResult();
                                 layer.close(CreateRemoteOpen);
@@ -219,7 +238,7 @@ var strVar = "";
                         });
                 },
                  btn2: function(){
-                                console.log('取消创建')
+                        console.log('取消创建')
                 }
 
               });
@@ -261,7 +280,7 @@ var strVar = "";
                                     GetRResult();
                                     layer.msg('执行成功')
                                 } else {
-                                    layer.alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]});
+                                    layer.alert(jQuery.parseJSON(data).result,{title:false,area: ["250px", "150px"],time: 10000,btn:["关闭"]});
                                     GetRResult()
                                 }
                             }
@@ -272,17 +291,12 @@ var strVar = "";
                 );
             };
             DeleteR = function () {
-                clickalert = layer.alert('真的要删除吗', {
-                    skin: 'layui-layer-molv' 
-                    ,
-                    closeBtn: 1 
-                    ,
-                    anim: 0 
-                    ,
-                    btn: ['确定', '取消'] 
-                    ,
-                    icon: 0 
-                    ,
+                clickalert = layer.alert('真的要删除吗？', {
+                    title: '删除主机',
+                    closeBtn: 1,
+                    anim: 0,
+                    btn: ['确定', '取消'],
+                    icon: 0,
                     yes: function () {
                         $.ajax({
                             type: "POST",
@@ -297,7 +311,7 @@ var strVar = "";
                                     GetRResult();
                                     layer.msg('删除成功')
                                 } else {
-                                    layer.alert(jQuery.parseJSON(data).result,{title:false,skin: "layui-layer-molv",area: ["250px", "150px"],time: 10000,btn:["知道了"]});
+                                    layer.alert(jQuery.parseJSON(data).result,{title:false,area: ["250px", "150px"],time: 10000,btn:["关闭"]});
                                     GetRResult()
                                 }
                             }
