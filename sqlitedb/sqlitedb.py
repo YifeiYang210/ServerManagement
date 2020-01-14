@@ -168,7 +168,7 @@ class sqlClass(object):
             SHELL = LinkButtonDict['SHELL']
             CATEGORY = LinkButtonDict['CATEGORY']
             self.con.execute(
-                'INSERT INTO LinkButton (BTID,BUTTONNAME,TYPE,TIM,NOTE,SHELL,CATEGORY) VALUES (?,?,?,?,?,?,?)',
+                'INSERT INTO ZLinkButton (BTID,BUTTONNAME,TYPE,TIM,NOTE,SHELL,CATEGORY) VALUES (?,?,?,?,?,?,?)',
                 (BTID, BUTTONNAME, TYPE, TIM, NOTE, SHELL, CATEGORY))
             self.con.commit()
             return [True]
@@ -177,16 +177,16 @@ class sqlClass(object):
 
     # 查询按钮数据
     def selectLinkButton(self, CATEGORY):
-        return self.con.execute('SELECT * FROM LinkButton WHERE CATEGORY=?', (CATEGORY,)).fetchall()
+        return self.con.execute('SELECT * FROM ZLinkButton WHERE CATEGORY=?', (CATEGORY,)).fetchall()
 
     # 按照BTID号查询shell
     def selectShellForLinkButton(self, BTID):
-        return self.con.execute('SELECT SHELL FROM LinkButton WHERE BTID=?', (BTID,)).fetchall()
+        return self.con.execute('SELECT SHELL FROM ZLinkButton WHERE BTID=?', (BTID,)).fetchall()
 
     # 更新shell
     def updateLinkButton(self, BTID, SHELL):
         try:
-            self.con.execute('UPDATE LinkButton set SHELL=? WHERE BTID=?', (SHELL, BTID))
+            self.con.execute('UPDATE ZLinkButton set SHELL=? WHERE BTID=?', (SHELL, BTID))
             self.con.commit()
             return [True]
         except Exception as e:
@@ -194,7 +194,7 @@ class sqlClass(object):
 
     # 删除按钮
     def deleteLinkButton(self, BTID):
-        self.con.execute('DELETE FROM LinkButton WHERE BTID=?', (BTID,))
+        self.con.execute('DELETE FROM ZLinkButton WHERE BTID=?', (BTID,))
         self.con.commit()
 
     # ---------------------文件分享---------------------------------#

@@ -37,39 +37,21 @@
     </div>
     <!-- 分隔符 !-->
     <div class="admin-main" style="width:46%;float: left">
-        <fieldset class="layui-elem-field">
-
-            <legend><a style="color: white">全部网络连接&#8195;</a><a class='layui-btn layui-btn-normal layui-btn-sm' href='javascript:void(0);' onclick='refNet()'>刷新</a><a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
-            </legend>
-            <div class="layui-field-box">
-                <table class="site-table table-hover">
-                    <thead style="color: white">
-                        <tr>
-                            <th>
-                                进程名
-                            </th>
-                            <th>
-                                pid
-                            </th>
-                            <th>
-                                类型
-                            </th>
-                            <th>
-                                状态
-                            </th>
-                            <th>
-                                本地
-                            </th>
-                            <th>
-                                远程
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="networkdataList" style="color: white">
-                    </tbody>
-                </table>
-            </div>
-        </fieldset>
+      <fieldset class="layui-elem-field">
+        <legend><a style="color: white">全部网络连接&#8195;</a>
+          <a class='layui-btn layui-btn-normal layui-btn-sm' onclick='refNet()'>刷新</a>
+          <a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
+        </legend>
+        <div class="layui-field-box">
+          <table class="site-table table-hover">
+            <thead style="color: white">
+              <tr><th>进程名</th><th>pid</th><th>类型</th>
+              <th>状态</th><th>本地</th><th>远程</th></tr>
+            </thead>
+            <tbody id="networkdataList" style="color: white"></tbody>
+          </table>
+        </div>
+      </fieldset>
     </div>
         <script type="text/javascript" src="/static/js/ffevent.js"></script>
         <script type="text/javascript" src="/static/js/jszip-utils.min.js"></script>
@@ -106,6 +88,7 @@
             return hem;
         };
 
+        // ajax分布加载进程的表头
         function getProTtl(te) {
             var $ = layui.jquery;
             var hem = '<tr>';
@@ -163,9 +146,9 @@
                         };
                         workList = obj.result;
                         ttl = ['进程名', 'pid', '执行用户', '内存使用'];
-                        document.getElementById("prodatattl").innerHTML = getProTtl(ttl);
+                        document.getElementById("prodatattl").innerHTML = getProTtl(ttl); //首先加载表头
                         document.getElementById("proListSize").text = workList.length;
-                        document.getElementById("prodataList").innerHTML = getProHtml(workList);
+                        document.getElementById("prodataList").innerHTML = getProHtml(workList); //然后加载表格进程内容
                         workList = ''
 
                     }

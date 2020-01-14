@@ -64,6 +64,124 @@
 
 #### 2.3项目数据库
 
+### 3 项目功能
+
+```python
+# CPU信息
+cpuUsed = psutil.cpu_percent(1)
+# 内存信息
+memoryInfo = psutil.virtual_memory()
+memoryUsedSize = round(memoryInfo.used / (1024.0 * 1024.0 * 1024.0), 2)
+memoryUsed = round(memoryUsedSize / memoryTotal, 2) * 100
+# 网络io
+net = psutil.net_io_counters()
+bytesRcvd = (net.bytes_recv / 1024)
+bytesSent = (net.bytes_sent / 1024)
+time.sleep(1)
+net = psutil.net_io_counters()
+realTimeRcvd = round(((net.bytes_recv / 1024) - bytesRcvd), 2)
+realTimeSent = round(((net.bytes_sent / 1024) - bytesSent), 2)
+tim = time.strftime('%H:%M:%S', time.localtime())
+realTimeInfo = {
+    'cpu': {'cpuUsed': cpuUsed},
+    'memory': {'memoryUsed': memoryUsed},
+    'net': {'rcvd': realTimeRcvd, 'send': realTimeSent}
+}
+sql.insertInfo(info=realTimeInfo)
+sql.deleteInfo(day=self.saveDay)
+```
+
+`<field-set>`
+
+```html
+<div class="admin-main" style="width:46%;float: left">
+  <fieldset class="layui-elem-field">
+    <legend><a style="color: white">全部网络连接&#8195;</a>
+      <a class='layui-btn layui-btn-normal layui-btn-sm' onclick='refNet()'>刷新</a>
+      <a style="clear: both;font-size: 8px;color: #A4A4A4">点击进程名查看更多</a>
+    </legend>
+    <div class="layui-field-box">
+      <table class="site-table table-hover">
+        <thead style="color: white">
+          <tr><th>进程名</th><th>pid</th><th>类型</th>
+          <th>状态</th><th>本地</th><th>远程</th></tr>
+        </thead>
+        <tbody id="networkdataList" style="color: white"></tbody>
+      </table>
+    </div>
+  </fieldset>
+</div>
+```
+
+获取全部网络连接信息
+
+```python 
+@app.route('/GetNetWorkList', methods=['POST', 'GET'])
+@cklogin()
+def GetNetWorkList():
+    netstats = psutil.net_connections()  # 获取全部网络连接信息
+    networkList = []
+    for netstat in netstats:
+        try:
+            tmp = {}
+            p = psutil.Process(netstat.pid)
+            tmp_name = p.name()
+            # 根据系统平台的不同，过滤系统进程
+            if platform.system().upper() == 'WINDOWS':
+                if tmp_name.upper().replace(' ', '') in wink:
+                    continue
+            else:
+                if tmp_name.upper() in ps:
+                    continue
+            tmp['process'] = tmp_name                                   # 程序文件名
+            tmp['pid'] = netstat.pid                                    # 进程pid号
+            tmp['type'] = ('tcp' if netstat.type == 1 else 'udp')       # 套接字类型
+            tmp['laddr'] = netstat.laddr                                # 本地连接
+            tmp['raddr'] = netstat.raddr or 'None'                      # 远程连接
+            tmp['status'] = netkey.get(netstat.status, netstat.status)  # 连接状态
+            networkList.append(tmp)
+        except:
+            continue
+    #...
+    return response
+```
+
+获取进程连接全部信息
+
+```python 
+@app.route('/ProcessDetails', methods=['POST'])
+@cklogin()
+def ProcessDetails():
+    try:
+        pid = request.values.get('pid')
+        p = psutil.Process(int(pid))
+        try:
+            n = p.exe()
+        except:
+            n = 'None'
+        proIO = p.io_counters()
+        ProcessDict = {
+            'ProcessName': p.name(),                                   # 进程名字
+            'ProcessPath': n,                                          # 进程路径
+            'ProcessStatus': p.status(),                               # 进程创建日期
+            'ProcessStartTime': datetime.datetime                      
+                                        .fromtimestamp(p.create_time())
+                                        .strftime("%Y-%m-%d %H:%M:%S"),
+            'ProcessMemory': str(round(p.memory_percent(), 3)) + '%',  # 进程内存
+            'ProcessThreads': p.num_threads(),                         # 进程线程
+            'ProcessCPU': str(p.cpu_percent(0.2)) + '%',               # 进程CPU
+            'ProcessUser': p.username(),                               # 进程用户名
+            'ProcessReadCount': proIO.read_count,                      # 进程读取IO
+            'ProcessWriteCount': proIO.write_count,                    # 进程写入IO
+            'ProcessReadBytes': proIO.read_bytes,                      # 进程读取字节数
+            'ProcessWriteBytes': proIO.write_bytes                     # 进程写入字节数
+        }
+    except Exception as e:
+        return json.dumps({'resultCode': 1, 'result': str(e) + '可能是权限不足'})
+    else:
+        return json.dumps({'resultCode': 0, 'result': ProcessDict})
+```
+
 
 
 

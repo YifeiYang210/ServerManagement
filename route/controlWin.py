@@ -69,7 +69,8 @@ if 'WINDOWS' in platform.platform().upper():
         x = int(request.values.get('x')) * RATE
         y = int(request.values.get('y')) * RATE
         pyautogui.moveTo(ox, oy, duration=0.1)
-        moveTime = math.sqrt(abs(ox - x) ** 2 + abs(oy - y) ** 2) / 1080  # 根据移动距离计算时间,此处为移动1080px需要1秒,可自行更改
+        moveTime = math.sqrt(abs(ox - x) ** 2 + abs(oy - y) ** 2) / 1080
+        # 根据移动距离计算时间,此处为移动1080px需要1秒,可自行更改
         pyautogui.dragTo(x, y, duration=(moveTime if moveTime > 0.3 else 0.3))
         return ''
 
